@@ -243,6 +243,10 @@ extension ZEGBot {
 				userId: userId,
 				untilDate: untilDate?.unixTimeInt ?? nil))
 	}
+    
+    public func getMe() throws -> User {
+        return try performRequest(ofMethod: "getMe", payload: Payload())
+    }
 
 }
 
@@ -279,6 +283,8 @@ extension ZEGBot {
 	}
 
 }
+
+private struct Payload: Encodable { }
 
 private struct AnswerCallbackQueryPayload: Encodable {
 
